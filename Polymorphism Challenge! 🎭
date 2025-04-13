@@ -1,0 +1,26 @@
+# Base class: Animal
+class Animal:
+    def move(self):
+        raise NotImplementedError("Subclass must implement abstract method")
+
+# Subclass: Dog
+class Dog(Animal):
+    def move(self):
+        print("Running 🐕")
+
+# Subclass: Bird
+class Bird(Animal):
+    def move(self):
+        print("Flying 🐦")
+
+# Subclass: Fish
+class Fish(Animal):
+    def move(self):
+        print("Swimming 🐟")
+
+# Create objects of different animals
+animals = [Dog(), Bird(), Fish()]
+
+# Call move() for each animal, demonstrating polymorphism
+for animal in animals:
+    animal.move()  # Each animal defines its own move method
