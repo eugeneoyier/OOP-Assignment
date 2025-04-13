@@ -1,0 +1,40 @@
+# Base class: Smartphone
+class Smartphone:
+    def __init__(self, brand, model, storage, battery):
+        self.brand = brand         # Brand of the smartphone
+        self.model = model         # Model name
+        self.storage = storage     # Storage in GB
+        self.battery = battery     # Battery life in percentage
+
+    def display_info(self):
+        print(f"Brand: {self.brand}")
+        print(f"Model: {self.model}")
+        print(f"Storage: {self.storage}GB")
+        print(f"Battery: {self.battery}%")
+
+    def make_call(self, number):
+        print(f"Calling {number}...")
+
+    def charge(self):
+        print(f"Charging... Battery is now 100%!")
+        self.battery = 100
+
+# Subclass: GamingSmartphone (inherits from Smartphone)
+class GamingSmartphone(Smartphone):
+    def __init__(self, brand, model, storage, battery, gpu):
+        super().__init__(brand, model, storage, battery)  # Initialize base class
+        self.gpu = gpu  # Add GPU for gaming performance
+
+    def play_game(self, game_name):
+        print(f"Playing {game_name} on {self.model} with {self.gpu} GPU!")
+
+# Create a base Smartphone object
+phone = Smartphone("Samsung", "Galaxy S21", 128, 75)
+phone.display_info()
+phone.make_call("123-456-7890")
+phone.charge()
+
+# Create a GamingSmartphone object
+gaming_phone = GamingSmartphone("Asus", "ROG Phone 5", 256, 85, "Adreno 650")
+gaming_phone.display_info()
+gaming_phone.play_game("PUBG Mobile")
